@@ -1,6 +1,7 @@
 import random
 import prompt
-from brain_games.function_brain_games import acquaintance_users, check_the_answer
+from brain_games.function_brain_games import acquaintance_users
+from brain_games.function_brain_games import check_the_answer
 
 
 operator_list = ['+', '-', '*']

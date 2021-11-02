@@ -19,3 +19,13 @@ def check_the_answer(answer_user, correct_answer, name_user) -> bool:
               correct_answer)
         print('Let`s try again, ', name_user, '!')
         exit()
+
+
+def gcd_euclids(num1, num2) -> int:
+    """Алгоритм Евклида для нахождения НОД"""
+    while num1 != 0 and num2 != 0:
+        if num1 >= num2:
+            num1 %= num2
+        else:
+            num2 %= num1
+    return num1 or num2

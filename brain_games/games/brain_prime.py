@@ -18,4 +18,4 @@ def prime():
 
         check_the_answer(answer_user, isPrime(prime_number), name_user)
 
-    print('Congratulations, ', name_user, '!')
+    print('Congratulations,', name_user + '!')

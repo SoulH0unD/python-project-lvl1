@@ -19,4 +19,4 @@ def progression():
 
         check_the_answer(answer_user, list_progression[index_number], name_user)
 
-    print('Congratulations, ', name_user, '!')
+    print('Congratulations,', name_user + '!')

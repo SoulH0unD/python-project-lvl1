@@ -26,4 +26,4 @@ def calc():
 
         check_the_answer(answer_user, correct_answer, name_user)
 
-    print('Congratulations, ', name_user, '!')
+    print('Congratulations,', name_user + '!')

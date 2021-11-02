@@ -18,4 +18,4 @@ def gcd():
 
         check_the_answer(answer_user, gcd_euclids(number1, number2), name_user)
 
-    print('Congratulations, ', name_user, '!')
+    print('Congratulations,', name_user, '!')

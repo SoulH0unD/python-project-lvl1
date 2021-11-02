@@ -18,7 +18,8 @@ def even():
         if parity_check == answer_user:
             print('Correct!')
         else:
-            print(answer_user, ' is wrong answer ;(. Correct answer was ', parity_check)
+            print(answer_user, ' is wrong answer ;(. Correct answer was ',
+                  parity_check)
             print('Let`s try again, ', name_user, '!')
             break
         if i == 2:

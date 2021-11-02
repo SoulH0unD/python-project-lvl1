@@ -52,3 +52,13 @@ def print_progression(list_progression, index_number) -> str:
         else:
             str_progression = str_progression + '.. '
     return str_progression
+
+
+def isPrime(n):
+    """Проверка числа на простоту"""
+    d = 2
+    while n % d != 0:
+        d += 1
+    if d == n:
+        return 'yes'
+    return 'no'

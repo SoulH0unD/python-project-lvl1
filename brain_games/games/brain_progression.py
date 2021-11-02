@@ -16,7 +16,6 @@ def progression():
         print('What number is missing in the progression?')
         print('Question:', print_progression(list_progression, index_number))
         answer_user = prompt.integer('Your answer: ')
-
         check_the_answer(answer_user, list_progression[index_number], name_user)
 
     print('Congratulations,', name_user + '!')

@@ -18,7 +18,7 @@ def check_the_answer(answer_user, correct_answer, name_user) -> bool:
     else:
         print(answer_user, 'is wrong answer ;(. Correct answer was',
               correct_answer)
-        print('Let`s try again,', name_user + '!')
+        print("Let's try again,", name_user + '!')
         exit()
 
 

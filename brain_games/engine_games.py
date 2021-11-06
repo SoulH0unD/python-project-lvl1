@@ -4,6 +4,7 @@ from brain_games.games.gcd import gcd
 from brain_games.games.prime import prime
 from brain_games.games.progression import progression
 
+
 def engine(name_games: str):
     if name_games == 'calc':
         calc()

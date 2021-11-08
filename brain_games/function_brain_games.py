@@ -6,19 +6,20 @@ def acquaintance_users() -> str:
     """Знакомство с пользователем"""
     print('Welcome to the Brain Games!')
     name_user = prompt.string('May I have your name? ')
-    print('Hello,', name_user + '!')
+    print(f'Hello, {name_user}!')
     return name_user
 
 
-def check_the_answer(answer_user, correct_answer, name_user) -> bool:
+def check_the_answer(answer, name_user) -> bool:
     """Проверка ответа пользователя"""
-    if answer_user == correct_answer:
+    if answer['user'] == answer['correct']:
         print('Correct!')
         return True
     else:
-        print(answer_user, 'is wrong answer ;(. Correct answer was',
-              correct_answer)
-        print("Let's try again,", name_user + '!')
+        str1 = f"{answer['user']} is wrong answer ;(."
+        str2 = f"Correct answer was {answer['correct']}"
+        print(str1, str2)
+        print(f"Let's try again, {name_user}!")
         exit()
 
 
@@ -39,6 +40,7 @@ def get_progression() -> list:
 
     for i in range(9):
         list_progression.append(list_progression[i] + step_progression)
+
     return list_progression
 
 
@@ -51,10 +53,11 @@ def print_progression(list_progression, index_number) -> str:
             str_progression = str_progression + str(list_progression[i]) + ' '
         else:
             str_progression = str_progression + '.. '
+
     return str_progression
 
 
-def isPrime(n):
+def isPrime(n) -> str:
     """Проверка числа на простоту"""
     d = 2
     while n % d != 0:

@@ -1,6 +1,5 @@
 import random
 import prompt
-from brain_games.function_brain_games import isPrime
 
 
 task = 'Answer "yes" if given number is prime. Otherwise answer "no".'
@@ -17,3 +16,13 @@ def prime():
     }
 
     return answer
+
+
+def isPrime(n) -> str:
+    """Проверка числа на простоту"""
+    d = 2
+    while n % d != 0:
+        d += 1
+    if d == n:
+        return 'yes'
+    return 'no'

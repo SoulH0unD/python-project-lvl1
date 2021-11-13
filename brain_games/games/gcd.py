@@ -1,9 +1,18 @@
 import random
 import prompt
-from brain_games.function_brain_games import gcd_euclids
 
 
 task = 'Find the greatest common divisor of given numbers.'
+
+
+def gcd_euclids(num1, num2) -> int:
+    """Алгоритм Евклида для нахождения НОД"""
+    while num1 != 0 and num2 != 0:
+        if num1 >= num2:
+            num1 %= num2
+        else:
+            num2 %= num1
+    return num1 or num2
 
 
 def gcd():

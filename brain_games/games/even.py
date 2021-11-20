@@ -1,4 +1,3 @@
-import prompt
 from random import randint
 
 
@@ -11,6 +10,7 @@ def get_text_task():
 
 def generation_question():
     dict_question['number'] = randint(1, 50)
+
 
 def game(answer_user):
     answer = {

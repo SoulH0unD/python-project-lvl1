@@ -1,4 +1,3 @@
-import random
 from random import randint, choice
 
 
@@ -18,19 +17,15 @@ def generation_question():
     dict_question['number2'] = randint(0, 10)
 
 
-
 def game(answer_user):
-
     if dict_question['operator'] == OPERATOR_LIST[0]:
         correct_answer = dict_question['number1'] + dict_question['number2']
     elif dict_question['operator'] == OPERATOR_LIST[1]:
         correct_answer = dict_question['number1'] - dict_question['number2']
     else:
         correct_answer = dict_question['number1'] * dict_question['number2']
-
     answer = {
         'user': int(answer_user),
         'correct': correct_answer
     }
-
     return answer

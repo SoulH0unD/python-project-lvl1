@@ -3,6 +3,7 @@ import prompt
 
 COUNT_GAMES = 3
 
+
 def engine(game):
     print('Welcome to the Brain Games!')
     name_user = prompt.string('May I have your name? ')
@@ -11,7 +12,9 @@ def engine(game):
 
     for i in range(COUNT_GAMES):
         game.generation_question()
-        print('Question:', " ".join([str(i) for i in game.dict_question.values()]))
+        print(
+            'Question:',
+            " ".join([str(i) for i in game.dict_question.values()]))
         answer_user = prompt.string('Your answer: ')
         answer = game.game(answer_user)
         if answer['user'] == answer['correct']:

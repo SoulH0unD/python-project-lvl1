@@ -1,18 +1,25 @@
-import random
 import prompt
+from random import randint
 
-task = 'What number is missing in the progression?'
+
+dict_question = {}
+dict_variables = {}
+
+def get_text_task():
+    return 'What number is missing in the progression?'
 
 
-def progression():
-    list_progression = get_progression()
-    index_number = random.randint(0, 9)
-    print('Question:', print_progression(list_progression, index_number))
-    answer_user = prompt.integer('Your answer: ')
+def generation_question():
+    dict_variables['list_progression'] = get_progression()
+    dict_variables['index_number'] = randint(0, 9)
+    dict_question['progression'] = print_progression(dict_variables['list_progression'], dict_variables['index_number'])
 
+
+
+def game(answer_user):
     answer = {
-        'user': answer_user,
-        'correct': list_progression[index_number]
+        'user': int(answer_user),
+        'correct': dict_variables['list_progression'][dict_variables['index_number']]
     }
 
     return answer
@@ -20,22 +27,22 @@ def progression():
 
 def get_progression() -> list:
     """Генерация прогрессии"""
-    step_progression = random.randint(2, 6)
-    list_progression = [random.randint(0, 20)]
+    step_progression = randint(2, 6)
+    lst_progression = [randint(0, 20)]
 
     for i in range(9):
-        list_progression.append(list_progression[i] + step_progression)
+        lst_progression.append(lst_progression[i] + step_progression)
 
-    return list_progression
+    return lst_progression
 
 
-def print_progression(list_progression, index_number) -> str:
+def print_progression(lst_progression, index_number) -> str:
     """Выввод прогресси с пустым элементом"""
     str_progression = ''
 
     for i in range(10):
         if i != index_number:
-            str_progression = str_progression + str(list_progression[i]) + ' '
+            str_progression = str_progression + str(lst_progression[i]) + ' '
         else:
             str_progression = str_progression + '.. '
 

@@ -2,21 +2,27 @@ import prompt
 from random import randint
 
 
-task = 'Answer "yes" if the number is even, otherwise answer "no".'
+dict_question = {}
 
 
-def even():
-    number = randint(1, 50)
-    print('Question:', str(number))
-    answer_user = "'" + prompt.string('Your answer: ') + "'"
-    if number % 2 == 0:
-        correct_answer = "'yes'"
-    else:
-        correct_answer = "'no'"
+def get_text_task():
+    return 'Answer "yes" if the number is even, otherwise answer "no".'
 
+
+def generation_question():
+    dict_question['number'] = randint(1, 50)
+
+def game(answer_user):
     answer = {
-        'user': answer_user,
-        'correct': correct_answer
+        'user': "'" + answer_user + "'",
+        'correct': isEven(dict_question['number'])
     }
 
     return answer
+
+
+def isEven(number):
+    if number % 2 == 0:
+        return "'yes'"
+    else:
+        return "'no'"

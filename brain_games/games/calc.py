@@ -1,26 +1,35 @@
 import random
-import prompt
+from random import randint, choice
 
 
-task = 'What is the result of the expression?'
+dict_question = {}
 
 
-def calc():
-    operator_list = ['+', '-', '*']
-    number1 = random.randint(0, 10)
-    number2 = random.randint(0, 10)
-    operator = random.choice(operator_list)
-    print('Question:', str(number1), operator, str(number2))
-    answer_user = prompt.integer('Your answer: ')
-    if operator == operator_list[0]:
-        correct_answer = number1 + number2
-    elif operator == operator_list[1]:
-        correct_answer = number1 - number2
+OPERATOR_LIST = ['+', '-', '*']
+
+
+def get_text_task():
+    return 'What is the result of the expression?'
+
+
+def generation_question():
+    dict_question['number1'] = randint(0, 10)
+    dict_question['operator'] = choice(OPERATOR_LIST)
+    dict_question['number2'] = randint(0, 10)
+
+
+
+def game(answer_user):
+
+    if dict_question['operator'] == OPERATOR_LIST[0]:
+        correct_answer = dict_question['number1'] + dict_question['number2']
+    elif dict_question['operator'] == OPERATOR_LIST[1]:
+        correct_answer = dict_question['number1'] - dict_question['number2']
     else:
-        correct_answer = number1 * number2
+        correct_answer = dict_question['number1'] * dict_question['number2']
 
     answer = {
-        'user': answer_user,
+        'user': int(answer_user),
         'correct': correct_answer
     }
 

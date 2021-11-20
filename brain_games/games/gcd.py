@@ -1,8 +1,18 @@
-import random
 import prompt
+from random import randint
 
 
-task = 'Find the greatest common divisor of given numbers.'
+dict_question = {}
+
+
+def get_text_task():
+    return 'Find the greatest common divisor of given numbers.'
+
+
+def generation_question():
+    dict_question['number1'] = randint(1, 100)
+    dict_question['number2'] = randint(1, 100)
+
 
 
 def gcd_euclids(num1, num2) -> int:
@@ -15,15 +25,10 @@ def gcd_euclids(num1, num2) -> int:
     return num1 or num2
 
 
-def gcd():
-    number1 = random.randint(1, 100)
-    number2 = random.randint(1, 100)
-    print('Question:', str(number1), str(number2))
-    answer_user = prompt.integer('Your answer: ')
-
+def game(answer_user):
     answer = {
-        'user': answer_user,
-        'correct': gcd_euclids(number1, number2)
+        'user': int(answer_user),
+        'correct': gcd_euclids(dict_question['number1'], dict_question['number2'])
     }
 
     return answer

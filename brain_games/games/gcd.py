@@ -1,16 +1,6 @@
 from random import randint
 
-
-dict_question = {}
-
-
-def get_text_task():
-    return 'Find the greatest common divisor of given numbers.'
-
-
-def generation_question():
-    dict_question['number1'] = randint(1, 100)
-    dict_question['number2'] = randint(1, 100)
+RULES = 'Find the greatest common divisor of given numbers.'
 
 
 def gcd_euclids(num1, num2) -> int:
@@ -23,11 +13,10 @@ def gcd_euclids(num1, num2) -> int:
     return num1 or num2
 
 
-def game(answer_user):
-    answer = {
-        'user': int(answer_user),
-        'correct': gcd_euclids(dict_question['number1'],
-                               dict_question['number2'])
-    }
+def start():
+    number1 = randint(1, 100)
+    number2 = randint(1, 100)
+    question = f'Question: {number1} {number2}'
+    correct_answer = gcd_euclids(number1, number2)
 
-    return answer
+    return question, str(correct_answer)

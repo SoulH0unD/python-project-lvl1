@@ -1,31 +1,25 @@
 from random import randint
 
 
-dict_question = {}
+RULES = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
-def get_text_task():
-    return 'Answer "yes" if given number is prime. Otherwise answer "no".'
+def start():
+    prime_number = randint(2, 100)
+    question = f'Question: {prime_number}'
+    if isPrime(prime_number):
+        correct_answer = 'yes'
+    else:
+        correct_answer = 'no'
+
+    return question, correct_answer
 
 
-def generation_question():
-    dict_question['prime_number'] = randint(2, 100)
-
-
-def game(answer_user):
-    answer = {
-        'user': answer_user,
-        'correct': isPrime(dict_question['prime_number'])
-    }
-
-    return answer
-
-
-def isPrime(number) -> str:
+def isPrime(number):
     """Проверка числа на простоту"""
     d = 2
     while number % d != 0:
         d += 1
     if d == number:
-        return 'yes'
-    return 'no'
+        return True
+    return False

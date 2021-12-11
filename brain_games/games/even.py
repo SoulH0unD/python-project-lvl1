@@ -1,28 +1,20 @@
 from random import randint
 
-
-dict_question = {}
-
-
-def get_text_task():
-    return 'Answer "yes" if the number is even, otherwise answer "no".'
+RULES = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
-def generation_question():
-    dict_question['number'] = randint(1, 50)
-
-
-def game(answer_user):
-    answer = {
-        'user': "'" + answer_user + "'",
-        'correct': isEven(dict_question['number'])
-    }
-
-    return answer
+def start():
+    number = randint(1, 50)
+    questions = f'Question: {number}'
+    if isEven(number):
+        correct_answer = 'yes'
+    else:
+        correct_answer = 'no'
+    return questions, correct_answer
 
 
 def isEven(number):
     if number % 2 == 0:
-        return "'yes'"
+        return True
     else:
-        return "'no'"
+        return False

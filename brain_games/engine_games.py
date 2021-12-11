@@ -8,20 +8,18 @@ def engine(game):
     print('Welcome to the Brain Games!')
     name_user = prompt.string('May I have your name? ')
     print(f'Hello, {name_user}!')
-    print(game.get_text_task())
+    print(game.RULES)
 
     for i in range(COUNT_GAMES):
-        game.generation_question()
-        print(
-            'Question:',
-            " ".join([str(i) for i in game.dict_question.values()]))
-        answer_user = prompt.string('Your answer: ')
-        answer = game.game(answer_user)
-        if answer['user'] == answer['correct']:
+        question, correct_answer = game.start()
+        print(question)
+        user_response = prompt.string('Your answer: ')
+
+        if user_response == correct_answer:
             print('Correct!')
         else:
-            str1 = f"{answer['user']} is wrong answer ;(."
-            str2 = f"Correct answer was {answer['correct']}"
+            str1 = f"{user_response} is wrong answer ;(."
+            str2 = f"Correct answer was {correct_answer}"
             print(str1, str2)
             print(f"Let's try again, {name_user}!")
             exit()

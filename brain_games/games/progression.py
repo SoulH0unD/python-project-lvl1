@@ -33,4 +33,4 @@ def print_progression(lst_progression, index):
         else:
             str_progression = ' '.join([str_progression, '..'])
 
-    return str_progression
+    return str_progression.strip()

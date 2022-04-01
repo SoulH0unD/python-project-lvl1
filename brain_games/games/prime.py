@@ -4,10 +4,10 @@ from random import randint
 RULES = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
-def start():
+def start_games():
     prime_number = randint(2, 100)
-    question = f'Question: {prime_number}'
-    if isPrime(prime_number):
+    question = f'{prime_number}'
+    if is_prime(prime_number):
         correct_answer = 'yes'
     else:
         correct_answer = 'no'
@@ -15,7 +15,7 @@ def start():
     return question, correct_answer
 
 
-def isPrime(number):
+def is_prime(number):
     """Проверка числа на простоту"""
     d = 2
     while number % d != 0:

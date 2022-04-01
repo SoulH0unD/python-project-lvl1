@@ -13,10 +13,10 @@ def gcd_euclids(num1, num2) -> int:
     return num1 or num2
 
 
-def start():
+def start_games():
     number1 = randint(1, 100)
     number2 = randint(1, 100)
-    question = f'Question: {number1} {number2}'
+    question = f'{number1} {number2}'
     correct_answer = gcd_euclids(number1, number2)
 
     return question, str(correct_answer)

@@ -1,18 +1,18 @@
 import prompt
 
 
-COUNT_GAMES = 3
+ROUNDS_COUNT = 3
 
 
-def engine(game):
+def begin(game):
     print('Welcome to the Brain Games!')
     name_user = prompt.string('May I have your name? ')
     print(f'Hello, {name_user}!')
     print(game.RULES)
 
-    for i in range(COUNT_GAMES):
-        question, correct_answer = game.start()
-        print(question)
+    for i in range(ROUNDS_COUNT):
+        question, correct_answer = game.start_games()
+        print(f'Question: {question}')
         user_response = prompt.string('Your answer: ')
 
         if user_response == correct_answer:

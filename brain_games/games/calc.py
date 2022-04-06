@@ -6,7 +6,9 @@ OPERATORS = ('+', '-', '*')
 START_RANGE = 0
 END_RANGE = 50
 
-def get_question_answer():
+
+def get_question_answer() -> tuple:
+    """Возвращаем вопрос и правильный ответ"""
     number1 = randint(START_RANGE, END_RANGE)
     number2 = randint(START_RANGE, END_RANGE)
     operator = choice(OPERATORS)

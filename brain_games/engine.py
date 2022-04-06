@@ -5,6 +5,7 @@ ROUNDS_COUNT = 3
 
 
 def play(game):
+    """Запуск игры"""
     print('Welcome to the Brain Games!')
     user_name = prompt.string('May I have your name? ')
     print(f'Hello, {user_name}!')

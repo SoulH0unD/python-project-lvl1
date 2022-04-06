@@ -3,34 +3,40 @@ from random import randint
 
 RULES = 'What number is missing in the progression?'
 
+#Указываем начальные и конечное значение диапазона
+#из которого выбирается первый элемент прогрессии
+START_RANGE_PROGRESSION = 0
+END_RANGE_PROGRESSION = 20
 
-def start_games():
+#Указываем начальные и конечное значение диапазона
+#из которого выбирается шаг прогрессии
+START_RANGE_STEP = 2
+END_RANGE_STEP = 9
+
+#Указываем начальные и конечное значение диапазона 
+#из которого будет выбираться индекс элемента который будет скрыт
+START_RANGE_INDEX = 0
+END_RANGE_INDEX = 9
+
+
+def get_question_answer():
     progression = get_progression()
-    index = randint(0, 9)
-    question = f'{print_progression(progression, index)}'
-    correct_answer = progression[index]
+    empty_index = randint(START_RANGE_INDEX, END_RANGE_INDEX)
+    correct_answer = progression[empty_index]
+    question = f'{empty_progression(progression, empty_index)}'
     return question, str(correct_answer)
 
 
 def get_progression():
     """Генерация прогрессии"""
-    step = randint(2, 6)
-    progression = [randint(0, 20)]
+    step = randint(START_RANGE_STEP, END_RANGE_STEP)
+    progression = [randint(START_RANGE_PROGRESSION, END_RANGE_PROGRESSION)]
     for i in range(9):
         progression.append(progression[i] + step)
-
     return progression
 
 
-def print_progression(lst_progression, index):
-    """Выввод прогресси с пустым элементом"""
-    str_progression = ''
-
-    for i in range(10):
-        if i != index:
-            str_progression = ' '.join([str_progression,
-                                        str(lst_progression[i])])
-        else:
-            str_progression = ' '.join([str_progression, '..'])
-
-    return str_progression.strip()
+def empty_progression(progression, empty_index):
+    """Генерация прогресси с пустым элементом"""
+    progression[empty_index] = '..'
+    return ' '.join(map(str, progression))

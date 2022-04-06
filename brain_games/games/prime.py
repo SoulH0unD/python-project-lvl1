@@ -2,10 +2,11 @@ from random import randint
 
 
 RULES = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+START_RANGE = 2
+END_RANGE = 100
 
-
-def start_games():
-    prime_number = randint(2, 100)
+def get_question_answer():
+    prime_number = randint(START_RANGE, END_RANGE)
     question = f'{prime_number}'
     if is_prime(prime_number):
         correct_answer = 'yes'
